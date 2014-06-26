@@ -1,0 +1,17 @@
+# Application dependencies
+
+require:
+   - play
+   - myorg.modone           -> modone 1.0-SNAPSHOT
+
+repositories:
+
+    - myModules:  
+        type:       chain
+        using:            
+            - locRep:
+                type: local       
+                descriptor: ${application.path}/../[module]/conf/dependencies.yml
+                artifact: ${application.path}/../[module]
+        contains:
+             - myorg.*  -> *

@@ -1,0 +1,4 @@
+self: myorg2 -> modtwo 1.0-SNAPSHOT
+
+require:
+    - play

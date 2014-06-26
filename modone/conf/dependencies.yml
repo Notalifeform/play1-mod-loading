@@ -1,0 +1,18 @@
+self: myorg -> modone 1.0-SNAPSHOT
+
+require:
+    - play
+    - myorg           -> modtwo 1.0-SNAPSHOT
+
+repositories:
+
+    - myModules:
+        type:       chain
+        using:
+            - locRep:
+                type: local
+                descriptor: ${application.path}/../[module]/conf/dependencies.yml
+                artifact: ${application.path}/../[module]
+        contains:
+             - myorg  -> *
+
