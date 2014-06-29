@@ -3,6 +3,7 @@ self: myorg -> modone 1.0-SNAPSHOT
 require:
     - play
     - myorg           -> modtwo 1.0-SNAPSHOT
+    - provided        -> modone 1.0
 
 repositories:
 
@@ -15,4 +16,10 @@ repositories:
                 artifact: ${application.path}/../[module]
         contains:
              - myorg  -> *
+
+    - provided:
+        type: local
+        artifact: "${application.path}/jar/[module]-[revision].jar"
+        contains:
+           - provided -> *
 
